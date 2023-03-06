@@ -35,9 +35,9 @@ namespace CMP1903M_A01_2223
             {
                 List<Card> shuffled = new List<Card>();
                 Random random = new Random();
-                for (int i = 0;i <= 51; i++)
+                for (int i = 0;i < 52; i++)
                 {
-                    int randomNum = random.Next(0, pack.Count);
+                    int randomNum = random.Next(0, 52);
                     shuffled.Add(pack[randomNum]);
                     pack.RemoveAt(randomNum);
                 }
@@ -67,9 +67,13 @@ namespace CMP1903M_A01_2223
             
 
         }
-        public static Card deal()
+        public static Card Deal()
         {
-            //Deals one card
+            Random random = new Random();
+            int randomNumber = random.Next(0, 52);
+            Console.WriteLine($"Your Card is: {pack[randomNumber]}");
+
+            return pack[randomNumber];
 
         }
         public static List<Card> dealCard(int amount)

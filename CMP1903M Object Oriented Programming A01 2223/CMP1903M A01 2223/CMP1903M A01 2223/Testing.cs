@@ -10,11 +10,14 @@ namespace CMP1903M_A01_2223
     {
         public Testing()
         {
+
         }
 
-        public string Validation(string input,int maxLength,int minLength)
+        
+
+        public int Validation(string input,int maxLength,int minLength,int refinedinput)
         {
-            int refinedinput;
+            
             bool validated = false;
             while (validated == false)
             {
@@ -39,7 +42,7 @@ namespace CMP1903M_A01_2223
 
             }
 
-            return input ;
+            return refinedinput;
         }
     }
 }
