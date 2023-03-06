@@ -8,16 +8,47 @@ namespace CMP1903M_A01_2223
 {
     class Pack
     {
-        List<Card> pack;
+
+        public static List<Card> pack = new List<Card>();
 
         public Pack()
         {
-            //Initialise the card pack here
+            for (int t = 1;t <= 4; t++)
+            {
+                for (int n = 1; n < 14; n++)
+                {
+                    Card card = new Card();
+                    card.Value = n;
+                    card.Suit = t;
+                    pack.Add(card);
+                }
+            }
         }
 
         public static bool shuffleCardPack(int typeOfShuffle)
         {
-            //Shuffles the pack based on the type of shuffle
+            if (typeOfShuffle == 0)
+            {
+                List<Card> shuffled = new List<Card>();
+                Random random = new Random();
+                for (int i = 0;i <= 51; i++)
+                {
+                    int randomNum = random.Next(0, pack.Count);
+                    shuffled.Add(pack[randomNum]);
+                    pack.RemoveAt(randomNum);
+                }
+                pack = shuffled;
+                return true;
+            }
+            else if(typeOfShuffle == 1)
+            {
+
+            }
+            else if (typeOfShuffle == 2)
+            {
+                return false;
+            }
+            
 
         }
         public static Card deal()
