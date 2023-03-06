@@ -29,6 +29,7 @@ namespace CMP1903M_A01_2223
         {
             if (typeOfShuffle == 0)
             {
+                
                 return false;
             }
             else if (typeOfShuffle == 1)
@@ -58,6 +59,7 @@ namespace CMP1903M_A01_2223
                     shuffled.Add(half[i]);
                     shuffled.Add(pack[i]);
                 }
+                pack = shuffled;
                 return true;
             }
             else
@@ -69,16 +71,19 @@ namespace CMP1903M_A01_2223
         }
         public static Card Deal()
         {
-            Random random = new Random();
-            int randomNumber = random.Next(0, 52);
-            Console.WriteLine($"Your Card is: {pack[randomNumber]}");
+            Card card = new Card();
 
-            return pack[randomNumber];
+            return card ;
 
         }
         public static List<Card> dealCard(int amount)
         {
-            //Deals the number of cards specified by 'amount'
+            List<Card> cards = new List<Card>();
+            for(int i = 0; i > amount; i++)
+            {
+                cards.Add(pack[i]);
+            }
+            return cards;
         }
     }
 }
