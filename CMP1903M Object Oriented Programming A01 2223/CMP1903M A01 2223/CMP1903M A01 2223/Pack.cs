@@ -29,6 +29,10 @@ namespace CMP1903M_A01_2223
         {
             if (typeOfShuffle == 0)
             {
+                return false;
+            }
+            else if (typeOfShuffle == 1)
+            {
                 List<Card> shuffled = new List<Card>();
                 Random random = new Random();
                 for (int i = 0;i <= 51; i++)
@@ -40,11 +44,23 @@ namespace CMP1903M_A01_2223
                 pack = shuffled;
                 return true;
             }
-            else if(typeOfShuffle == 1)
+            else if(typeOfShuffle == 2)
             {
-
+                List<Card> shuffled = new List<Card>();
+                List<Card> half = new List<Card>();
+                for (int i = 0; i < 27; i++)
+                {
+                    half.Add(pack[i]);
+                    pack.RemoveAt(i);
+                }
+                for (int i = 0;i < 27; i++)
+                {
+                    shuffled.Add(half[i]);
+                    shuffled.Add(pack[i]);
+                }
+                return true;
             }
-            else if (typeOfShuffle == 2)
+            else
             {
                 return false;
             }
