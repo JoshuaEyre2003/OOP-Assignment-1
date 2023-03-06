@@ -21,12 +21,12 @@ namespace CMP1903M_A01_2223
 
             Deal(validation);
 
-            Outputting(pack, validation);
+            Console.ReadKey();
         }
         public static void Shuffle(Pack pack, Program validation)
         {
             string shuffleChoice;
-            Console.WriteLine("Please enter an amount of cards(1,3)");
+            Console.WriteLine("Please Enter either 1 2 or 3 for the type of shuffle\n 1 is fisher-yates shuffle\n 2 is Riffle shuffle \n 3 is no Shuffle");
             shuffleChoice = Console.ReadLine();
             int intshuffleChoice = validation.Validation(shuffleChoice, 3, 1, 0);
             pack.shuffleCardPack(intshuffleChoice);
@@ -37,15 +37,14 @@ namespace CMP1903M_A01_2223
             Console.WriteLine("Please enter an amount of cards(1,52)");
             input = Console.ReadLine();
             int intInput = Validation.Validation(input, 52, 1, 0);
-            Pack.dealCard(intInput);
+            List<Card> cards = Pack.dealCard(intInput);
+            foreach(Card card in cards)
+            {
+                Console.WriteLine($"Card : {card.Suit} {card.Value}");
+            }
+            
         }
-        public static void Outputting(Pack pack, Program Validation)
-        {
-            string amount;
-            Console.WriteLine("Please enter an amount of cards(1,52)");
-            amount = Console.ReadLine();
-            int intshuffleChoice = Validation.Validation(amount, 52, 1, 0);
-        }
+        
 
 
 

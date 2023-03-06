@@ -49,12 +49,12 @@ namespace CMP1903M_A01_2223
             {
                 List<Card> shuffled = new List<Card>();
                 List<Card> half = new List<Card>();
-                for (int i = 0; i < 27; i++)
+                for (int i = 0; i < 26; i++)
                 {
-                    half.Add(pack[i]);
-                    pack.RemoveAt(i);
+                    half.Add(pack[0]);
+                    pack.RemoveAt(0);
                 }
-                for (int i = 0;i < 27; i++)
+                for (int i = 0;i < 26; i++)
                 {
                     shuffled.Add(half[i]);
                     shuffled.Add(pack[i]);
@@ -79,7 +79,7 @@ namespace CMP1903M_A01_2223
         public static List<Card> dealCard(int amount)
         {
             List<Card> cards = new List<Card>();
-            for(int i = 0; i > amount; i++)
+            for(int i = 0; i < amount; i++)
             {
                 cards.Add(pack[i]);
             }
