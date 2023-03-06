@@ -13,7 +13,7 @@ namespace CMP1903M_A01_2223
 
         public Pack()
         {
-            for (int t = 1;t <= 4; t++)
+            for (int t = 1;t < 5; t++)
             {
                 for (int n = 1; n < 14; n++)
                 {
@@ -25,9 +25,9 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        public static bool shuffleCardPack(int typeOfShuffle)
+        public bool shuffleCardPack(int typeOfShuffle)
         {
-            if (typeOfShuffle == 0)
+            if (typeOfShuffle == 3)
             {
                 
                 return false;
@@ -38,7 +38,7 @@ namespace CMP1903M_A01_2223
                 Random random = new Random();
                 for (int i = 0;i < 52; i++)
                 {
-                    int randomNum = random.Next(0, 52);
+                    int randomNum = random.Next(0, pack.Count);
                     shuffled.Add(pack[randomNum]);
                     pack.RemoveAt(randomNum);
                 }
@@ -71,7 +71,7 @@ namespace CMP1903M_A01_2223
         }
         public static Card Deal()
         {
-            Card card = new Card();
+            Card card = pack[0];
 
             return card ;
 

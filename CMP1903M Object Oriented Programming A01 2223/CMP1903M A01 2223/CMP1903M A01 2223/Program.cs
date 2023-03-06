@@ -10,19 +10,38 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            Testing validation = new Testing();
+            Testing program = new Testing();
             
-            string input;
-            string shuffleChoice;
-            Pack.Deal();
-            Console.WriteLine("Please enter an amount of cards(1,52)");
-            input = Console.ReadLine();
-            int intInput = validation.Validation(input,52,1,0);
-            Console.WriteLine("Please enter an amount of cards(1,52)");
-            shuffleChoice = Console.ReadLine();
-            int intshuffleChoice = validation.Validation(shuffleChoice, 52, 1, 0);
-            Pack.shuffleCardPack(intshuffleChoice);
-            Pack.dealCard(intInput);
         }
+        public int Validation(string input, int maxLength, int minLength, int refinedinput)
+        {
+
+            bool validated = false;
+            while (validated == false)
+            {
+                try
+                {
+                    refinedinput = Convert.ToInt32(input);
+                    if (refinedinput >= minLength && refinedinput <= maxLength)
+                    {
+                        validated = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Please enter a number within {maxLength} and {minLength},Try again");
+                        input = Console.ReadLine();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a Correct type.Try again");
+                    input = Console.ReadLine();
+                }
+
+            }
+
+            return refinedinput;
+        }
+
     }
 }
