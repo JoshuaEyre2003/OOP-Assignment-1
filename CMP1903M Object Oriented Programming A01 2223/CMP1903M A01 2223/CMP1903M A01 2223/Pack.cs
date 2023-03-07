@@ -10,7 +10,8 @@ namespace CMP1903M_A01_2223
     {
 
         public static List<Card> pack = new List<Card>();
-
+        public static List<Card> shuffled = new List<Card>();
+        public static Random random = new Random();
         public Pack()
         {
             for (int t = 1;t < 5; t++)
@@ -18,24 +19,23 @@ namespace CMP1903M_A01_2223
                 for (int n = 1; n < 14; n++)
                 {
                     Card card = new Card();
-                    card.Value = n;
-                    card.Suit = t;
+                    card.Value = n;card.Suit = t;
                     pack.Add(card);
                 }
             }
         }
 
-        public bool shuffleCardPack(int typeOfShuffle)
+        public static bool shuffleCardPack(int typeOfShuffle)
         {
             if (typeOfShuffle == 3)
             {
-                
+                Console.WriteLine("No shuffle has been applied");
                 return false;
             }
-            else if (typeOfShuffle == 1)
+            if (typeOfShuffle == 1)
             {
-                List<Card> shuffled = new List<Card>();
-                Random random = new Random();
+                
+                
                 for (int i = 0;i < 52; i++)
                 {
                     int randomNum = random.Next(0, pack.Count);
@@ -43,23 +43,26 @@ namespace CMP1903M_A01_2223
                     pack.RemoveAt(randomNum);
                 }
                 pack = shuffled;
+                Console.WriteLine("The Fisher-Yates shuffle has been applied");
                 return true;
             }
-            else if(typeOfShuffle == 2)
+            if(typeOfShuffle == 2)
             {
-                List<Card> shuffled = new List<Card>();
-                List<Card> half = new List<Card>();
+                
+                
                 for (int i = 0; i < 26; i++)
                 {
-                    half.Add(pack[0]);
+                    shuffled.Add(pack[0]);
                     pack.RemoveAt(0);
                 }
+                List<Card> riffled = new List<Card>();
                 for (int i = 0;i < 26; i++)
                 {
-                    shuffled.Add(half[i]);
-                    shuffled.Add(pack[i]);
+                    riffled.Add(shuffled[i]);
+                    riffled.Add(pack[i]);
                 }
-                pack = shuffled;
+                pack = riffled;
+                Console.WriteLine("The riffle shuffle has been applied");
                 return true;
             }
             else
@@ -71,8 +74,10 @@ namespace CMP1903M_A01_2223
         }
         public static Card Deal()
         {
-            Card card = pack[0];
-
+            
+            int randomNum = random.Next(0, 53);
+            Card card = pack[randomNum];
+            Console.WriteLine($"Your card is: {card.Suit} {card.Value}");
             return card ;
 
         }
@@ -82,6 +87,11 @@ namespace CMP1903M_A01_2223
             for(int i = 0; i < amount; i++)
             {
                 cards.Add(pack[i]);
+                
+            }
+            foreach (Card card in cards)
+            {
+                Console.WriteLine($"Card : {card.Suit} {card.Value}");
             }
             return cards;
         }

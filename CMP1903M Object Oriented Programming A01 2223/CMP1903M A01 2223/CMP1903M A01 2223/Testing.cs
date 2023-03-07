@@ -14,8 +14,8 @@ namespace CMP1903M_A01_2223
             Pack pack = new Pack();
 
 
-            Card card = Pack.Deal();
-            Console.WriteLine($"Your card is: {card.Suit} {card.Value}");
+            Pack.Deal();
+            
 
             Shuffle(pack, validation);
 
@@ -29,7 +29,7 @@ namespace CMP1903M_A01_2223
             Console.WriteLine("Please Enter either 1 2 or 3 for the type of shuffle\n 1 is fisher-yates shuffle\n 2 is Riffle shuffle \n 3 is no Shuffle");
             shuffleChoice = Console.ReadLine();
             int intshuffleChoice = validation.Validation(shuffleChoice, 3, 1, 0);
-            pack.shuffleCardPack(intshuffleChoice);
+            Pack.shuffleCardPack(intshuffleChoice);
         }
         public static void Deal(Program Validation)
         {
@@ -38,10 +38,7 @@ namespace CMP1903M_A01_2223
             input = Console.ReadLine();
             int intInput = Validation.Validation(input, 52, 1, 0);
             List<Card> cards = Pack.dealCard(intInput);
-            foreach(Card card in cards)
-            {
-                Console.WriteLine($"Card : {card.Suit} {card.Value}");
-            }
+            
             
         }
         
