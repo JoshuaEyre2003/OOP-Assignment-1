@@ -14,6 +14,8 @@ namespace CMP1903M_A01_2223
         public static Random random = new Random();//Create a random object so that it is more efficent then instantiating a new one everytime a random number is needed within a procedure
         public Pack()
         {
+            
+            //This will generate the 52 cards needed for the shuffles by looping 4 times for the suits and 13 times for values of the cards
             for (int t = 1;t < 5; t++)//Loops for the 4 different suits
             {
                 for (int n = 1; n < 14; n++)//Loops for the 13 values of cards needed per suit
@@ -27,6 +29,10 @@ namespace CMP1903M_A01_2223
 
         public static bool shuffleCardPack(int typeOfShuffle)
         {
+            //This will use the users shuffle choice to then select a type of shuffle and perform said shuffle the options are no shuffle,fisher-yates and
+            //riffle which all have there own algorithems within this function
+            
+            
             if (typeOfShuffle == 3)//uses the users shuffle choice to select what type of shuffle to perform
             {
                 //This will perform no shuffle leaving the cards in the original order going from 1 1 to 4 13 in order
