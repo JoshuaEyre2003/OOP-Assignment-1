@@ -17,10 +17,12 @@ namespace CMP1903M_A01_2223
             Pack pack = new Pack();//creates a pack object which on creation creates a deck of 52 cards
 
 
-            Pack.Deal();//deals one card from the pack, has been randomized asif pack was not sorted
+            
             
 
             Shuffle(pack, validation);//Ask the user to select a shuffle then shuffles the cards accordingly
+            
+            Pack.Deal();//deals one card from the pack, has been randomized asif pack was not sorted
 
             Deal(validation);//Asks for an amount of cards to be dealt and will output the amount of cards
 

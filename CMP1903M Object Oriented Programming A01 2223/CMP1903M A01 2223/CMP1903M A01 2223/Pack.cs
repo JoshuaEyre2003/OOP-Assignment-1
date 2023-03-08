@@ -86,9 +86,9 @@ namespace CMP1903M_A01_2223
         {
             //This will output a singluar card, selected at random from the deck asif it had been shuffle or randomised at the beginning of a game
             //This could then be used for games such as blackjack or poker if it were to be implemented
-            
-            int randomNum = random.Next(0, 53);//generates a random number between 1 and 52 to select a card at random
-            Card card = pack[randomNum];//creates a card object and gives it the values of that random card
+
+            Console.WriteLine("First Card:");
+            Card card = pack[0];//creates a card object and gives it the values of that random card
             Console.WriteLine($"Your card is: {card.Suit} {card.Value}");//outputs the cards suit and value for the user
             return card ;//returns the card object incase it is needed within the testing class
 
